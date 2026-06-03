@@ -3,3 +3,6 @@ class Dealer (object):
         self.DealerCards = []
     def Add_Cards(self, Card):
         self.DealerCards.append(Card)
+
+
+

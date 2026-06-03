@@ -3,3 +3,5 @@ class Player (object):
         self.playercards = []
     def Add_Card (self, card):
         self.playercards.append(card)
+    def Sum_Card(self):
+        return sum(self.playercards)
