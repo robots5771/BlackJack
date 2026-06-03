@@ -33,28 +33,30 @@ class Blackjack(object):
                 Disable += 1
             
     def DealersTurn (self):
-        while self.Dealer1.Sum_Card() < 17:
+        while self.Dealer1.Sum_Card() < 17 and self.player1.Sum_Card() < 22:
             if self.player1.Sum_Card() < 22:
                 DealerCard = rand.choice(self.BlackjackDeck.cards)
                 self.Dealer1.Add_Cards(DealerCard)
                 if self.Dealer1.Sum_Card() > 17 or self.Dealer1.Sum_Card() > 21:  #This skips printing until the final dealer card is drawn to prevent spamming
                     print(self.player1.Current_Hand())
                     print(self.Dealer1.Current_Hand())
+                    print()
                 else:
                     print(self.player1.Current_Hand())
                     print(self.Dealer1.Current_Hand())
+                    print()
 
 
     def WinLoseBust(self):
         if self.player1.Sum_Card() > 21:
             print("Bust")
-        if self.player1.Sum_Card() > self.Dealer1.Sum_Card():
+        elif self.player1.Sum_Card() > self.Dealer1.Sum_Card():
             print("Win")
-        if self.player1.Sum_Card() == 21 and self.Dealer1.Sum_Card() < 21:
+        elif self.player1.Sum_Card() == 21 and self.Dealer1.Sum_Card() < 21:
             print("Win")
-        if self.player1.Sum_Card() == 21 and self.Dealer1.Sum_Card() > 21:
+        elif self.player1.Sum_Card() == 21 and self.Dealer1.Sum_Card() > 21:
             print("Win")
-        if self.player1.Sum_Card() == self.Dealer1.Sum_Card():
+        elif self.player1.Sum_Card() == self.Dealer1.Sum_Card():
             print("Push")
         else:
             print("Lose")
