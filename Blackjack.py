@@ -23,6 +23,7 @@ class Blackjack(object):
             Tally += 1
         print(self.player1.Current_Hand())
         print(self.Dealer1.Current_Hand())
+        
 
     def PlayerHitCards(self):
 
@@ -64,6 +65,9 @@ class Blackjack(object):
         if self.player1.Sum_Card() > 21:
             print("Bust")
             OutCome.config(text = "Bust")
+        elif self.player1.Sum_Card() < 21 and self.Dealer1.Sum_Card() > 21:
+            print("Win")
+            OutCome.config(text = "Win")
         elif self.player1.Sum_Card() > self.Dealer1.Sum_Card():
             print("Win")
             OutCome.config(text = "Win")
@@ -76,6 +80,9 @@ class Blackjack(object):
         elif self.player1.Sum_Card() == self.Dealer1.Sum_Card():
             print("Push")
             OutCome.config(text = "Push")
+        elif self.player1.Sum_Card() > self.Dealer1.Sum_Card():
+            print("Win")
+            OutCome.config(text = "Win")
         else:
             print("Lose")
             OutCome.config(text = "Lose")
@@ -98,7 +105,16 @@ def DealersTurnAndWinOrLose():
     rungame.WinLoseBust()
     labelDealer.config(text = rungame.Dealer1.Current_Hand())
 
-
+def RestartGame():
+    global rungame
+    rungame = Blackjack()
+    labelPlayer.config(text = rungame.player1.Current_Hand())
+    labelDealer.config(text = rungame.Dealer1.Current_Hand())
+    labelPlayer.config(state = "normal")
+    labelDealer.config(state = "normal")
+    Deals.config(state = "normal")
+    Stand.config(state = "normal")
+    OutCome.config(text = "Outcome Unknown")
     
     
 
@@ -119,6 +135,10 @@ Deals.pack()
 
 Stand = tk.Button(root, text="Stand", width = 25, command = DealersTurnAndWinOrLose)
 Stand.pack()
+
+Restart = tk.Button(root, text="Stand", width = 25, command = RestartGame)
+Restart.pack()
+
 
 
 
