@@ -6,7 +6,7 @@ class Dealer (object):
     def Sum_Card(self):
         return sum(self.DealerCards)
     def Current_Hand(self):
-        return (f"Dealer: {self.DealerCards} , {self.Sum_Card()}")
+        return (f"Dealer Cards : {self.DealerCards} ,  {self.Sum_Card()}")
 
 
  

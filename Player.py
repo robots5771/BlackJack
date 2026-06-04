@@ -6,4 +6,4 @@ class Player (object):
     def Sum_Card(self):
         return sum(self.playercards)
     def Current_Hand(self):
-        return (f"Player: {self.playercards} , {self.Sum_Card()}")
+        return (f"Player Cards : {self.playercards} ,  {self.Sum_Card()}")
