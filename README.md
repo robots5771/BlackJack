@@ -19,10 +19,10 @@ This is an ongoing project of mine where i am demonstrating skills along the way
 
 ### OOP
 
-- CardDealer Class , Handles grabbing cards out the deck
-- Player Class , Handles the players hand
-- Blackjack Class , Handles main game flow
-- Methods used to direct game flow
+- Card Class , Handles card deck creation + Shuffling
+- Player Class and Dealer Class handles card creation + AddCard() + Sum_Card() + CurrentHand()
+- Blackjack Class , Handles main game flow + Tkinter Logic
+- Individial Scripts used to break down code into more followable parts
 
 ### How Cards Are Managed
 

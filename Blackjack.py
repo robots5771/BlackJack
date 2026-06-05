@@ -33,17 +33,20 @@ class Blackjack(object):
                 print(self.player1.Current_Hand())
                 print(self.Dealer1.Current_Hand())
 
+
             if self.player1.Sum_Card() > 21:
                 labelPlayer.config(state = "disabled")
                 labelDealer.config(state = "disabled")
                 Deals.config(state = "disabled")
                 Stand.config(state = "disabled")
+                OutCome.config(text = "Lose")
             elif self.player1.Sum_Card() == 21:
                 labelPlayer.config(state = "disabled")
                 labelDealer.config(state = "disabled")
                 Deals.config(state = "disabled")
                 Stand.config(state = "disabled")
                 DealersTurnAndWinOrLose()
+            
             
         
     def DealersTurn (self):
@@ -94,6 +97,8 @@ rungame = Blackjack()
 
 def PlayerHits():
     rungame.PlayerHitCards()
+    rungame.BlackjackDeck.Shuffle()
+    Cards.config(text = f"Cards : {rungame.BlackjackDeck.cards}")
     labelPlayer.config(text = rungame.player1.Current_Hand())
 
 def DealersTurnAndWinOrLose():
@@ -103,6 +108,9 @@ def DealersTurnAndWinOrLose():
     Stand.config(state = "disabled")
     rungame.DealersTurn()
     rungame.WinLoseBust()
+    rungame.BlackjackDeck.Shuffle()
+    Cards.config(text = f"Cards : {rungame.BlackjackDeck.cards}")
+    Cards.config(text = rungame.BlackjackDeck.Shuffle())
     labelDealer.config(text = rungame.Dealer1.Current_Hand())
 
 def RestartGame():
@@ -116,8 +124,6 @@ def RestartGame():
     Stand.config(state = "normal")
     OutCome.config(text = "Outcome Unknown")
     
-    
-
 labelPlayer = tk.Label(root, text= rungame.player1.Current_Hand()) #Label Controls
 labelPlayer.pack() #Place Label Inside Window
 
@@ -136,14 +142,8 @@ Deals.pack()
 Stand = tk.Button(root, text="Stand", width = 25, command = DealersTurnAndWinOrLose)
 Stand.pack()
 
-Restart = tk.Button(root, text="Stand", width = 25, command = RestartGame)
+Restart = tk.Button(root, text="Restart", width = 25, command = RestartGame)
 Restart.pack()
-
-
-
-
-
-
 
 root.mainloop()
 
